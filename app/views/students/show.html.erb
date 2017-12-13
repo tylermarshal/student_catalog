@@ -1,6 +1,7 @@
 <h1><%= @student.name %></h1>
 <%= link_to "Delete", student_path(@student), method: :delete %>
 
+<h3>Student Addresses</h3>
 <ul>
   <% @student.addresses.each do |address| %>
     <li><%= address.description %></li>
@@ -8,5 +9,14 @@
     <li><%= address.city %></li>
     <li><%= address.state %></li>
     <li><%= address.zipcode %></li>
+    <br>
+  <% end %>
+</ul>
+
+<h3>Student Courses</h3>
+<ul>
+  <% @student.courses.each do |course| %>
+    <li><%= course.name %></li>
+    <br>
   <% end %>
 </ul>
