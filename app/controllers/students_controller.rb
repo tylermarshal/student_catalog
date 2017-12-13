@@ -13,7 +13,6 @@ class StudentsController < ApplicationController
     def create
       @student = Student.new(student_params)
       if @student.save
-        flash[:success] = "Successfully created #{@student.name}!"
         redirect_to student_path(@student)
       else
         render :new
