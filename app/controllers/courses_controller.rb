@@ -10,8 +10,8 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
-    if @student.save
-      redirect_to student_path(@student)
+    if @course.save
+      redirect_to student_path(@course)
     else
       render :new
     end
