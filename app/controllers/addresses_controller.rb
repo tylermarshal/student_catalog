@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
 
     def create
       @student = Student.find(params[:student_id])
-      @address = student.addresses.create!(address_params)
+      @address = @student.addresses.create!(address_params)
       if @address.save
         redirect_to student_path(@address.student)
       else
@@ -18,7 +18,7 @@ class AddressesController < ApplicationController
     private
 
     def address_params
-      params.require(:address).permit(:description, :street_address, :city, :state, :zipcode, :student_id)
+      params.require(:address).permit(:description, :street_address, :city, :state, :zipcode, :students_id)
     end
 
 end
