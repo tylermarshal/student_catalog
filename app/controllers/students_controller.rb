@@ -25,6 +25,9 @@ class StudentsController < ApplicationController
 
     def update
       @student.update(student_params)
+      @student.save
+
+      redirect_to student_path(@student)
     end
 
     def show
