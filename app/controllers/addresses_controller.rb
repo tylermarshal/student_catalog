@@ -1,14 +1,15 @@
 class AddressesController < ApplicationController
 
     def new
-      @student = Student.new
+      @student = Student.find(params[:student_id])
       @address = Address.new
     end
 
     def create
-      @address = student.address(address_params)
+      @student = Student.find(params[:student_id])
+      @address = student.addresses.create!(address_params)
       if @address.save
-        redirect_to student_path(@address)
+        redirect_to student_path(@address.student)
       else
         render :new
       end
